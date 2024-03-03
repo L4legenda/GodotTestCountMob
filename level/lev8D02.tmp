@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcrrxnf58ci8t"]
+[gd_scene load_steps=10 format=3 uid="uid://dcrrxnf58ci8t"]
 
 [ext_resource type="PackedScene" uid="uid://0bncx1gmnpl1" path="res://entity/player.tscn" id="1_cmwnt"]
 [ext_resource type="Script" path="res://level/level.gd" id="1_kr0rn"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://duf3gapgg3s02" path="res://spawner/spawner.tscn" id="3_1frj7"]
 [ext_resource type="Script" path="res://spawner/type/spawn_wave_enemy_info.gd" id="4_4ip2k"]
 [ext_resource type="PackedScene" uid="uid://cjoa2j1yln0yo" path="res://entity/mob_baun_2.tscn" id="5_qh0h0"]
-[ext_resource type="PackedScene" uid="uid://br4kmk3oacnxj" path="res://entity/kustitsa.tscn" id="5_y0r14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l80m5"]
 texture = ExtResource("1_tns66")
@@ -111,8 +110,8 @@ sources/0 = SubResource("TileSetAtlasSource_l80m5")
 script = ExtResource("4_4ip2k")
 time_start = 0
 time_end = 300
-enemy = ExtResource("5_y0r14")
-enemy_num = 25
+enemy = ExtResource("5_qh0h0")
+enemy_num = 200
 enemy_spawn_delay = 1
 
 [node name="Level" type="Node2D"]
@@ -129,7 +128,6 @@ position = Vector2(7, -9)
 [node name="Mobs" type="Node2D" parent="." groups=["mobs"]]
 
 [node name="Spawner" parent="." instance=ExtResource("3_1frj7")]
-process_mode = 4
 spawns = Array[ExtResource("4_4ip2k")]([SubResource("Resource_nnsak")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -143,9 +141,6 @@ text = "0"
 autostart = true
 
 [node name="MobBaun2" parent="." instance=ExtResource("5_qh0h0")]
-position = Vector2(-69, 2)
-
-[node name="MobBaun3" parent="." instance=ExtResource("5_qh0h0")]
-position = Vector2(-90, -74)
+position = Vector2(-233, -8)
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="." method="_on_timer_timeout"]

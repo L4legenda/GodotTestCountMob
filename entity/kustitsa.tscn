@@ -42,6 +42,8 @@ animations = [{
 }]
 
 [node name="Kustitsa" type="Area2D"]
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_e05os")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

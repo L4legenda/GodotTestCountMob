@@ -6,6 +6,8 @@ extends Node2D
 
 var time = 0
 
+var thread: Thread
+
 func handler_timer():
 	var enemy_spawns = spawns
 	for i in enemy_spawns:

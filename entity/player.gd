@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Player
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var camera_2d = $Camera2D
 
@@ -34,3 +36,11 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, move_speed)
 	
 	global_position += velocity
+
+
+func _on_area_entered(area):
+	print(area)
+
+
+func _on_body_entered(body):
+	print(body)
