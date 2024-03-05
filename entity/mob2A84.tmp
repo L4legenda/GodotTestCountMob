@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjoa2j1yln0yo"]
+
+[ext_resource type="Texture2D" uid="uid://c0cik8sld176y" path="res://assets/mobs/Baun/Baun.png" id="1_gh3wn"]
+[ext_resource type="Script" path="res://entity/mob_baun_2.gd" id="2_51s67"]
+
+[node name="MobBaun2" type="Sprite2D"]
+position = Vector2(1, -12)
+texture = ExtResource("1_gh3wn")
+hframes = 4
+script = ExtResource("2_51s67")

@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://vnl77l4b0rh6" path="res://assets/hero/new_heroes/milshu_run.png" id="2_4u558"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcnjg"]
-radius = 147.0
-height = 294.0
+radius = 13.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmbdb"]
 atlas = ExtResource("1_ub5bl")
@@ -106,8 +106,6 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D"]
-collision_layer = 0
-monitorable = false
 script = ExtResource("1_05hkc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

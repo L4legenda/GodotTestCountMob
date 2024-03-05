@@ -1,18 +1,19 @@
-extends Sprite2D
+extends Area2D
 
 var frame_step: float = 1.0 / 8.0
 var index_frame: int = 0
 var time_frame: float = 0
 
-@onready var raycasts = $Raycasts
+@onready var raycasts = $Raycasting
+@onready var sprite_2d = $Sprite2D
 
 var nearest_player: Player = null
 
 var direction: Vector2 = Vector2.ZERO
 
-var max_speed: int = 70
+var max_speed: int = 50
 
-var max_steering: float = 2.5
+var max_steering: float = 6.5
 
 var velocity = Vector2.ZERO
 
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	var frame_count: int = time_frame / frame_step
 	if frame_count > 0:
 		time_frame = time_frame - (frame_step * frame_count)
-		frame = (frame + frame_count) % hframes
+		sprite_2d.frame = (sprite_2d.frame + frame_count) % sprite_2d.hframes
 		direction = global_position.direction_to(nearest_player.global_position)
 	
 	var steering: Vector2 = Vector2.ZERO
@@ -51,6 +52,8 @@ func avoid_obstacles_steering() -> Vector2:
 		raycast.target_position.x = velocity.length()
 		if raycast.is_colliding():
 			var obstacle = raycast.get_collider()
+			if obstacle == self:
+				return Vector2.ZERO
 			return (position + velocity - obstacle.position).normalized() * avoid_force
 	
 	return Vector2.ZERO

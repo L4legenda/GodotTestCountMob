@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds6rrnipih1r5"]
+
+[ext_resource type="Script" path="res://entity/mob_baun_3.gd" id="1_iykmu"]
+[ext_resource type="Texture2D" uid="uid://c0cik8sld176y" path="res://assets/mobs/Baun/Baun.png" id="2_uy414"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wusmk"]
+size = Vector2(43, 22)
+
+[node name="MobBaun3" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_iykmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_uy414")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 5)
+shape = SubResource("RectangleShape2D_wusmk")
+
+[node name="Raycasting" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasting"]
+exclude_parent = false
+target_position = Vector2(150, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasting"]
+position = Vector2(0, 20)
+exclude_parent = false
+target_position = Vector2(150, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasting"]
+position = Vector2(0, -20)
+exclude_parent = false
+target_position = Vector2(150, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
